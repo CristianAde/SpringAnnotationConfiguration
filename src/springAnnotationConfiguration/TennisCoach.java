@@ -4,19 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TennisCoach implements Coach{
+public class TennisCoach implements Coach {
 
-	@Autowired
+	//@Autowired
 	FortuneService fortuneService;
-	
+
 	public TennisCoach() {
 	}
-	
-	//@Autowired
+
+	// @Autowired
 	public TennisCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
-	
+
 	@Override
 	public String getDailyWorkout() {
 		return "TenisCoach workout";
@@ -25,10 +25,15 @@ public class TennisCoach implements Coach{
 	public String getFortuneService() {
 		return fortuneService.getDailyFortune();
 	}
-	
-	//@Autowired
+
+	// @Autowired
 	public void setFortuneService(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
-	
+
+	//@Autowired
+	public void otherMethodName(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
 }
