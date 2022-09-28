@@ -8,9 +8,10 @@ public class SpringAnnotation {
 		
 		ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-		TennisCoach tenisCoach = context.getBean("tennisCoach", TennisCoach.class);
-		System.out.println(tenisCoach.getDailyWorkout());
-		System.out.println(tenisCoach.getFortuneService());
+//		Coach coach = context.getBean("tennisCoach", Coach.class);
+		Coach coach = context.getBean("footballCoach", Coach.class);
+		System.out.println(coach.getDailyWorkout());
+		System.out.println(coach.getDailyFortune());
 		context.close();
 
 	}

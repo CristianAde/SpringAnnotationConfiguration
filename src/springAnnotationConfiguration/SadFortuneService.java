@@ -2,12 +2,12 @@ package springAnnotationConfiguration;
 
 import org.springframework.stereotype.Component;
 
-@Component("HappyFortuneService")
-public class HappyFortuneService implements FortuneService {
+@Component("SadFortuneService")
+public class SadFortuneService implements FortuneService {
 
 	@Override
 	public String getDailyFortune() {
-		return "Happy fortune";
+		return "Sad daily fortune";
 	}
 
 }

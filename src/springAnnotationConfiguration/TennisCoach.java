@@ -1,19 +1,20 @@
 package springAnnotationConfiguration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TennisCoach implements Coach {
+public class TennisCoach implements Coach{
 
 	//@Autowired
-	FortuneService fortuneService;
+	private FortuneService fortuneService;
 
 	public TennisCoach() {
 	}
 
-	// @Autowired
-	public TennisCoach(FortuneService fortuneService) {
+	@Autowired
+	public TennisCoach(@Qualifier("HappyFortuneService") FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
 
@@ -22,18 +23,20 @@ public class TennisCoach implements Coach {
 		return "TenisCoach workout";
 	}
 
-	public String getFortuneService() {
-		return fortuneService.getDailyFortune();
-	}
-
 	// @Autowired
 	public void setFortuneService(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
 	}
 
-	//@Autowired
-	public void otherMethodName(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
+//	@Autowired
+//	@Qualifier("HappyFortuneService")
+//	public void otherMethodName(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+
+	@Override
+	public String getDailyFortune() {
+		return fortuneService.getDailyFortune();
 	}
 
 }
