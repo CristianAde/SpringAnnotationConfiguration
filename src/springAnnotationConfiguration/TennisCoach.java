@@ -1,10 +1,14 @@
 package springAnnotationConfiguration;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Component
 //@Scope("prototype")
@@ -18,6 +22,15 @@ public class TennisCoach implements Coach{
 	@Value("${phone}")
 	String phone;
 	
+	@PostConstruct
+	public void doStartupStuff() {
+		System.out.println("Doing startupStuff");
+	}
+	
+	@PreDestroy
+	public void doCleanupStuff() {
+		System.out.println("Doing cleanupStuff");
+	}
 	
 	public TennisCoach() {
 	}
@@ -64,6 +77,7 @@ public class TennisCoach implements Coach{
 		this.phone = phone;
 	}
 
+	
 	
 	
 }
