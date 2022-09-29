@@ -1,13 +1,17 @@
 package springAnnotationConfiguration;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringAnnotation {
 
 	public static void main(String[] args) {
 		
-		ClassPathXmlApplicationContext context = 
-				new ClassPathXmlApplicationContext("applicationContext.xml");
+//		ClassPathXmlApplicationContext context = 
+//				new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context =
+				new AnnotationConfigApplicationContext(SportConfig.class);
+		
 		TennisCoach coach1 = context.getBean("tennisCoach", TennisCoach.class);
 		TennisCoach coach2 = context.getBean("tennisCoach", TennisCoach.class);
 //		System.out.println(coach.getDailyWorkout());
