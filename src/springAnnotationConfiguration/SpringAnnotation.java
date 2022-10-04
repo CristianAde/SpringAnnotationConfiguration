@@ -12,18 +12,25 @@ public class SpringAnnotation {
 		AnnotationConfigApplicationContext context =
 				new AnnotationConfigApplicationContext(SportConfig.class);
 		
-		TennisCoach coach1 = context.getBean("tennisCoach", TennisCoach.class);
-		TennisCoach coach2 = context.getBean("tennisCoach", TennisCoach.class);
+//		TennisCoach coach1 = context.getBean("tennisCoach", TennisCoach.class);
+//		TennisCoach coach2 = context.getBean("tennisCoach", TennisCoach.class);
 //		System.out.println(coach.getDailyWorkout());
 //		System.out.println(coach.getDailyFortune());
 //		System.out.println(coach.getEmail());
 //		System.out.println(coach.getPhone());
 		
+		SwimmCoach coach = context.getBean("mySwimmCoach", SwimmCoach.class);
+		System.out.println(coach.getDailyWorkout());
+		System.out.println(coach.getDailyFortune());
+		//data imported from file Sport.properties
+		System.out.println(coach.getEmail());
+		System.out.println(coach.getPhone());
 		
-		Coach coach3 = context.getBean("footballCoach", Coach.class);
-		Coach coach4 = context.getBean("footballCoach", Coach.class);
-		System.out.println("coach1==coach2:" + (coach1==coach2));
-		System.out.println("coach3==coach4:" + (coach3==coach4));
+		
+//		Coach coach3 = context.getBean("footballCoach", Coach.class);
+//		Coach coach4 = context.getBean("footballCoach", Coach.class);
+//		System.out.println("coach1==coach2:" + (coach1==coach2));
+//		System.out.println("coach3==coach4:" + (coach3==coach4));
 		context.close();
 	}
 
