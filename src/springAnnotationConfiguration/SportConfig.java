@@ -24,6 +24,14 @@ public class SportConfig {
 		return new SwimmCoach(sadFortuneService());
 	}
 	
+	@Bean
+	public BikersFortuneService bikersFortuneService() {
+		return new BikersFortuneService();
+	}
 	
+	@Bean
+	public Coach bikeCoach() {
+		return new BikeCoach(bikersFortuneService());
+	}
 	
 }
